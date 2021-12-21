@@ -1,0 +1,25 @@
+{
+  "name": "biblioteca-backend",
+  "version": "1.0.0",
+  "description": "<br /> <p align=\"center\">     <img src=\"https://i.pinimg.com/originals/dd/64/da/dd64da585bc57cb05e5fd4d8ce873f57.png\" alt=\"Logo\" width=\"200\">",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devchallenge-io/biblioteca-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devchallenge-io/biblioteca-backend/issues"
+  },
+  "homepage": "https://github.com/devchallenge-io/biblioteca-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "routes": "^2.1.0"
+  }
+}
