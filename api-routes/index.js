@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 
-const obras = ["Saab", "Volvo", "BMW"];
+const obras = [];
 
 module.exports = app => {
     app.use(bodyParser.json());
