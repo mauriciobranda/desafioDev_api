@@ -36,6 +36,17 @@ module.exports = app => {
         }
 
     })
+
+    app.delete('/obras/:index', function(request, response){
+        const index = request.params.index;
+        //Find index of specific object using findIndex method.    
+        objIndex = obras.findIndex((obj => obj.id == index));
+        //Delete object using splice method.
+        obras.splice(objIndex, 1);
+        //Log object to console again.
+        console.log("After delete: ", obras);
+        response.send("A obra"+ objIndex +" foi deletada !")
+    })
             
 
 }
