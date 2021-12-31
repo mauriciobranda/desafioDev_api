@@ -29,7 +29,7 @@ O desafio é de criar um backend para um sistema de gerenciamento de uma bibliot
 - Node JS com Express
 
 # Como começar:
-1 - Para rodar utilizar o comando: node index.js
+1 - Para rodar utilizar o comando: nodemon index.js
 
 
 # Comunidade DevChallenge
