@@ -7,45 +7,45 @@ module.exports = app => {
     app.get('/obras', (request, response) => response.send(obras));
     
     app.post('/obras', function(request, response){
-        const id = request.params.id;
-
-        //const idExiste = obras.some(obra => obra.id === id);
-        //console.log(idExiste); // true
-
         const obra = request.body;
-        obras.push(obra);
-        response.send('Post titulo')
-        
+        //console.log(obra.id)
+
+        objIndex = obras.findIndex((obj => obj.id == obra.id));
+        if (objIndex < 0) {
+            //console.log('Registro nao existe')
+            obras.push(obra);
+            response.status(201).send(obra);
+        } else {
+            //console.log('Registro ja existe')
+            response.status(200).send('Registro ja existe');
+        }
     });
 
     app.put('/obras/:index', function(request, response){
         const index = request.params.index;
+        const obra = request.body;
         //Find index of specific object using findIndex method.    
         objIndex = obras.findIndex((obj => obj.id == index));
 
-        if (index !== request.body.id){
-            response.status(400).send('Id diferente');
-        }
-        else{
-            //Update object's property.
-            obras[objIndex] = request.body;
-            //Log object to console again.
-            console.log("After update: ", obras[objIndex])
-            response.send("As propriedades da obra"+ objIndex +" foram alteradas !")
-
+        if (objIndex > -1) {
+            obras[objIndex] = obra;
+            response.send('Put titulo')
+        }else{
+            response.status(400).send('Obj n encontrado');
         }
 
     })
 
     app.delete('/obras/:index', function(request, response){
-        const index = request.params.index;
-        //Find index of specific object using findIndex method.    
+        const index = request.params.index;  
         objIndex = obras.findIndex((obj => obj.id == index));
-        //Delete object using splice method.
-        obras.splice(objIndex, 1);
-        //Log object to console again.
-        console.log("After delete: ", obras);
-        response.send("A obra"+ objIndex +" foi deletada !")
+
+        if (objIndex > -1) {
+            obras.splice(objIndex, 1);
+            response.send("A obra foi deletada !")
+        }else{
+            response.status(400).send('Obj n encontrado');
+        }
     })
             
 
